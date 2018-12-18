@@ -1,0 +1,8 @@
+#to ignore files
+
+# User-specific stuff:
+.idea/**
+.idea/
+.idea
+*.iml
+target/
