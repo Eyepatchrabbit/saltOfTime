@@ -1,10 +1,14 @@
+package day;
+
 import java.time.LocalDate;
 
 public class Day {
 
     private LocalDate date;
 
-    private String weekName;
+
+    private DayElements dayElements;
+
 
     public void setDate(LocalDate date) {
         this.date = date;
@@ -15,17 +19,14 @@ public class Day {
         return date;
     }
 
-    public void setWeekName(String weekName) {
-        this.weekName = weekName;
+
+    public DayElements getDayElements() {
+        return dayElements;
     }
 
-    public String getWeekName() {
-        return weekName;
+    public void setDayElements(DayElements dayElements) {
+        this.dayElements = dayElements;
     }
-
-
-
-
 
 
 
