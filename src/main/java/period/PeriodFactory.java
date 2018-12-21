@@ -1,18 +1,19 @@
 package period;
 
 import day.Day;
+import day.DayFactory;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PeriodBuilder {
+public class PeriodFactory {
 
-    public static Period periodBuild(LocalDate startDate, int periodlength) {
+    public static Period basicPeriodBuilder(LocalDate startDate, int periodlength) {
 
         Period periodToBuild=new Period();
 
-        periodToBuild.setStartPeriod(startDate);
+        periodToBuild.setStartOfPeriod(startDate);
 
         periodToBuild.setPeriodLength(periodlength);
 
@@ -32,12 +33,11 @@ public class PeriodBuilder {
         LocalDate dayToAddDate=startDate;
 
         for (int nrDay=0;nrDay<periodlength;nrDay++){
-            Day dayToAdd=new Day(dayToAddDate);
+            Day dayToAdd= DayFactory.basicDayFacory(dayToAddDate);
+            listOfDays.add(dayToAdd);
 
-            dayToAddDate.plusDays(1);
+            dayToAddDate= dayToAddDate.plusDays(1);
         }
-
-
 
         //sort list based on date
 

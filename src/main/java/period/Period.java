@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Period {
 
-    private LocalDate startPeriod;
+    private LocalDate startOfPeriod;
 
     private int periodLength;
 
@@ -18,12 +18,12 @@ public class Period {
 
 
 
-    public void setStartPeriod(LocalDate startPeriod) {
-        this.startPeriod = startPeriod;
+    public void setStartOfPeriod(LocalDate startOfPeriod) {
+        this.startOfPeriod = startOfPeriod;
     }
 
-    public LocalDate getStartPeriod() {
-        return startPeriod;
+    public LocalDate getStartOfPeriod() {
+        return startOfPeriod;
     }
 
 
