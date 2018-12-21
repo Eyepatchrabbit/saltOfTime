@@ -3,11 +3,32 @@ package period;
 import day.Day;
 import day.DayFactory;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PeriodFactory {
+
+    public static Period weekBuilder(){
+        return weekBuilder(LocalDate.now());
+    }
+
+    public static Period weekBuilder(LocalDate startDate){
+        return basicPeriodBuilder(firstOfTheWeek(startDate), 7);
+    }
+
+
+
+    public static Period monthBuilder(){
+        return monthBuilder(LocalDate.now());
+    }
+
+    public static Period monthBuilder(LocalDate startDate){
+        return basicPeriodBuilder(startDate, numberOfDaysInMonth(startDate));
+    }
+
+
 
     public static Period basicPeriodBuilder(LocalDate startDate, int periodlength) {
 
@@ -46,5 +67,15 @@ public class PeriodFactory {
         return listOfDays;
 
     }
+
+    public static LocalDate firstOfTheWeek(LocalDate date) {
+        return date.with(DayOfWeek.MONDAY);
+    }
+
+    public static int numberOfDaysInMonth(LocalDate date){
+        return date.lengthOfMonth();
+    }
+
+
 
 }

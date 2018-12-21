@@ -5,9 +5,15 @@ import day.WeekDayType;
 import org.junit.Assert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import testhelpmethods.DateUtils;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+
+import static period.PeriodFactory.firstOfTheWeek;
+import static period.PeriodFactory.numberOfDaysInMonth;
 
 public class PeriodFactoryTest {
 
@@ -62,4 +68,35 @@ public class PeriodFactoryTest {
         Assert.assertEquals(WeekDayType.WEEKEND,dayTwo.getDayElements().getWeekDayType());
 
     }
+
+    @DisplayName("firstOfTheWeek")
+    @ParameterizedTest
+    @CsvSource(value = {
+            //default
+            "2018:12:21, 2018:12:17",
+            //when inputdate is the first of the week
+            "2018:12:17, 2018:12:17",
+            //is in a previous month
+            "2018:12:01, 2018:11:26",
+            //next day is a monday
+            "2018:12:23, 2018:12:17"
+    })
+    public void firstOfTheWeekTest(String StartDate,String ExpectedFirstMonday){
+        Assert.assertEquals( firstOfTheWeek(DateUtils.stringToLocalDate(StartDate)), DateUtils.stringToLocalDate(ExpectedFirstMonday));
+    }
+
+    @DisplayName("numberOfDayOfMonth")
+    @ParameterizedTest
+    @CsvSource(value = {
+            "2018:12:23, 31",
+            //leapYear
+            "2000:02:23, 29",
+            "2001:02:23, 28"
+    })
+    public void numberOfDaysInMonthTest(String date, String expectedNumberOfDays){
+        Assert.assertTrue(numberOfDaysInMonth(DateUtils.stringToLocalDate(date))==Integer.parseInt(expectedNumberOfDays));
+
+    }
+
+
 }
