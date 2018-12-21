@@ -1,5 +1,6 @@
 package day;
 
+import java.security.PublicKey;
 import java.time.LocalDate;
 
 public class Day {
@@ -10,10 +11,18 @@ public class Day {
     private DayElements dayElements;
 
 
+
+    public Day(LocalDate date){
+        setDate(date);
+
+    }
+
+
+
+
     public void setDate(LocalDate date) {
         this.date = date;
     }
-
 
     public LocalDate getDate() {
         return date;
