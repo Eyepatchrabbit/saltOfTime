@@ -1,5 +1,7 @@
 package day;
 
+import timedifference.TimeDifference;
+
 import java.security.PublicKey;
 import java.time.LocalDate;
 
@@ -7,8 +9,9 @@ public class Day {
 
     private LocalDate date;
 
-
     private DayElements dayElements;
+
+    private TimeDifference timeDifference;
 
 
 
@@ -38,5 +41,12 @@ public class Day {
     }
 
 
+    public TimeDifference getTimeDifference() {
+        return timeDifference;
+    }
+
+    public void setTimeDifference(TimeDifference timeDifference) {
+        this.timeDifference = timeDifference;
+    }
 
 }

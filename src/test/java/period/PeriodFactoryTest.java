@@ -8,12 +8,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import testhelpmethods.DateUtils;
+import timedifference.DifferenceType;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
-import static period.PeriodFactory.firstOfTheWeek;
-import static period.PeriodFactory.numberOfDaysInMonth;
+import static period.PeriodFactory.*;
 
 public class PeriodFactoryTest {
 
@@ -38,6 +38,9 @@ public class PeriodFactoryTest {
         Assert.assertEquals(DayOfWeek.SATURDAY,day.getDayElements().getWeekName());
         Assert.assertEquals(WeekDayType.WEEKEND,day.getDayElements().getWeekDayType());
 
+        //see elements if TimeDifference aren't set yet
+        Assert.assertEquals(null,day.getTimeDifference());
+
     }
 
     @DisplayName("smoketestPeriodbuilderTwoDays")
@@ -59,6 +62,8 @@ public class PeriodFactoryTest {
         Assert.assertEquals(DayOfWeek.SATURDAY,dayOne.getDayElements().getWeekName());
         Assert.assertEquals(WeekDayType.WEEKEND,dayOne.getDayElements().getWeekDayType());
 
+        Assert.assertEquals(null,dayOne.getTimeDifference());
+
         //second day in period
         Day dayTwo=period.getDayFromPeriod(LocalDate.of(2018,12,2));
 
@@ -66,6 +71,8 @@ public class PeriodFactoryTest {
 
         Assert.assertEquals(DayOfWeek.SUNDAY,dayTwo.getDayElements().getWeekName());
         Assert.assertEquals(WeekDayType.WEEKEND,dayTwo.getDayElements().getWeekDayType());
+
+        Assert.assertEquals(null,dayTwo.getTimeDifference());
 
     }
 
@@ -96,6 +103,27 @@ public class PeriodFactoryTest {
     public void numberOfDaysInMonthTest(String date, String expectedNumberOfDays){
         Assert.assertTrue(numberOfDaysInMonth(DateUtils.stringToLocalDate(date))==Integer.parseInt(expectedNumberOfDays));
 
+    }
+
+
+    @DisplayName("dayLocationInlistTest")
+    @ParameterizedTest
+    @CsvSource(value = {
+            //first day
+            "2018:12:17,2018:12:17,0",
+            //second day
+            "2018:12:17,2018:12:18,1",
+            //last day period
+            "2018:12:17,2018:12:23,6",
+            //Before period
+            "2018:12:17,2018:12:16,-1",
+            //next monday
+            "2018:12:17,2018:12:24,-1"
+    })
+    public void dayLocationInlistTest(String startOfPeriod,String dayToFindInList,int expectedOutput){
+        Period weekPeriod= weekBuilder(DateUtils.stringToLocalDate(startOfPeriod));
+        int daylocationFromMethod=dayLocationInlist(weekPeriod.getDaysInPeriod(),DateUtils.stringToLocalDate(dayToFindInList));
+        Assert.assertEquals(expectedOutput, daylocationFromMethod);
     }
 
 

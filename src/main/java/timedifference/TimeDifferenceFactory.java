@@ -1,21 +1,16 @@
-package day.timedifference;
-
-import org.apache.commons.lang3.builder.Diff;
-
-import java.time.LocalTime;
+package timedifference;
 
 public class TimeDifferenceFactory {
 
     public static TimeDifference timeDifferenceBuilder(int timeDifferenceInDay){
         TimeDifference timeDifference=new TimeDifference();
 
-        timeDifference.setTimedifference(timeDifferenceInDay);
+        timeDifference.setTimeDifference(timeDifferenceInDay);
 
         timeDifference.setDifferenceType(determineDifferenceType(timeDifferenceInDay));
 
         return timeDifference;
     }
-    
 
 
     protected static DifferenceType determineDifferenceType(int timeDifferenceInDay){

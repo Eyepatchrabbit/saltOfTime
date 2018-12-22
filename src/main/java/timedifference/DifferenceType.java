@@ -1,4 +1,4 @@
-package day.timedifference;
+package timedifference;
 
 public enum  DifferenceType {
     TIMELEFT,

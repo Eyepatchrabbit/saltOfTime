@@ -1,20 +1,19 @@
-package day.timedifference;
-
-import java.time.LocalTime;
+package timedifference;
 
 public class TimeDifference {
 
-    private int timedifference;
+    //In minutes or possibly better in seconds ?? or make it variable later in settings
+    private int timeDifference;
 
     private DifferenceType differenceType=DifferenceType.UNKNOWN;
 
 
-    public void setTimedifference(int timedifference) {
-        this.timedifference = timedifference;
+    public void setTimeDifference(int timeDifference) {
+        this.timeDifference = timeDifference;
     }
 
-    public int getTimedifference() {
-        return timedifference;
+    public int getTimeDifference() {
+        return timeDifference;
     }
 
 
