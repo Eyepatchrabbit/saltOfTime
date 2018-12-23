@@ -5,6 +5,4 @@ public enum  DifferenceType {
     ENOUGH,
     DEFICIT,
 
-    //for when nothing is filled in the day
-    UNKNOWN
 }

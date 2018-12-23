@@ -5,7 +5,7 @@ public class TimeDifferenceFactory {
     public static TimeDifference timeDifferenceBuilder(int timeDifferenceInDay){
         TimeDifference timeDifference=new TimeDifference();
 
-        timeDifference.setTimeDifference(timeDifferenceInDay);
+        timeDifference.setTimeDifferenceInputted(timeDifferenceInDay);
 
         timeDifference.setDifferenceType(determineDifferenceType(timeDifferenceInDay));
 

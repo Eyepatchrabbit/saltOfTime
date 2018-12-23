@@ -3,17 +3,17 @@ package timedifference;
 public class TimeDifference {
 
     //In minutes or possibly better in seconds ?? or make it variable later in settings
-    private int timeDifference;
+    private int timeDifferenceInputted;
 
-    private DifferenceType differenceType=DifferenceType.UNKNOWN;
+    private DifferenceType differenceType;
 
 
-    public void setTimeDifference(int timeDifference) {
-        this.timeDifference = timeDifference;
+    public void setTimeDifferenceInputted(int timeDifferenceInputted) {
+        this.timeDifferenceInputted = timeDifferenceInputted;
     }
 
-    public int getTimeDifference() {
-        return timeDifference;
+    public int getTimeDifferenceInputted() {
+        return timeDifferenceInputted;
     }
 
 
@@ -25,9 +25,5 @@ public class TimeDifference {
     public DifferenceType getDifferenceType() {
         return differenceType;
     }
-
-
-
-
 
 }

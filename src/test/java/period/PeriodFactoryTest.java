@@ -7,8 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import testhelpmethods.DateUtils;
-import timedifference.DifferenceType;
+import utils.testhelpmethods.DateUtils;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;

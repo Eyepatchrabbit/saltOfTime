@@ -19,7 +19,7 @@ public class TimeDifferenceFactoryTest extends TimeDifferenceFactory{
         TimeDifference timeDifference= timeDifferenceBuilder(differenceinMinutes);
 
         Assert.assertEquals(differenceType,timeDifference.getDifferenceType());
-        Assert.assertEquals(differenceinMinutes,timeDifference.getTimeDifference());
+        Assert.assertEquals(differenceinMinutes,timeDifference.getTimeDifferenceInputted());
 
     }
 
