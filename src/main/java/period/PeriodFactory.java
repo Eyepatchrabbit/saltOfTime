@@ -77,5 +77,18 @@ public class PeriodFactory {
     }
 
 
+    //find day-object in list
+    public static int dayLocationInlist(List<Day> dayList,LocalDate dateOfDayToFind) {
+        int locationNumber=0;
+
+        for (Day dayInList:dayList) {
+            if (dayInList.getDate().equals(dateOfDayToFind)){
+                return locationNumber;
+            }
+            locationNumber++;
+        }
+
+        return -1;
+    }
 
 }

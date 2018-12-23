@@ -15,9 +15,6 @@ public class Period {
 
 
 
-
-
-
     public void setStartOfPeriod(LocalDate startOfPeriod) {
         this.startOfPeriod = startOfPeriod;
     }
