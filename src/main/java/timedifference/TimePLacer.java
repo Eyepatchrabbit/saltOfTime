@@ -46,7 +46,7 @@ public class TimePLacer {
     private static int seeIfDateInGivenDayeList(List<Day> daylist, LocalDate dateToAddTimeTo){
         int dayLocator=dayLocationInlist(daylist,dateToAddTimeTo);
         if (dayLocator<0){
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
         return dayLocator;
     }
