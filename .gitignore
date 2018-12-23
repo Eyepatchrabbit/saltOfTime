@@ -6,3 +6,9 @@
 .idea
 *.iml
 target/
+
+#playground for new code or elements
+sandbox/
+
+#for when creating files for saving data in a particular format
+datafiles/
