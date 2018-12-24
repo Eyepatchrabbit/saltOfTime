@@ -20,9 +20,10 @@ public class PeriodFactoryTest {
     @Test
     public void basicPeriodBuilder_OneDayTest() {
         //make "period" of 1 day->see if the needed elements were made
-        Period period= PeriodFactory.basicPeriodBuilder(LocalDate.of(2018,12, 1),1);
+        Period period= PeriodFactory.basicPeriodBuilder(LocalDate.of(2018,12, 1),1,PeriodType.ELSE);
 
         //basic elements of the period
+        Assert.assertEquals(PeriodType.ELSE,period.getPeriodType());
         Assert.assertEquals(LocalDate.of(2018,12,1),period.getStartOfPeriod());
         Assert.assertEquals(1,period.getPeriodLength());
         Assert.assertEquals(1,period.getDaysInPeriod().size());
@@ -46,9 +47,10 @@ public class PeriodFactoryTest {
     @Test
     public void basicPeriodBuilder_TwoDayTest() {
         //make "period" of 1 day->see if the needed elements were made
-        Period period= PeriodFactory.basicPeriodBuilder(LocalDate.of(2018,12, 1),2);
+        Period period= PeriodFactory.basicPeriodBuilder(LocalDate.of(2018,12, 1),2,PeriodType.ELSE);
 
         //basic elements of the period
+        Assert.assertEquals(PeriodType.ELSE,period.getPeriodType());
         Assert.assertEquals(LocalDate.of(2018,12,1),period.getStartOfPeriod());
         Assert.assertEquals(2,period.getPeriodLength());
         Assert.assertEquals(2,period.getDaysInPeriod().size());
