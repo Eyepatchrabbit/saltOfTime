@@ -7,12 +7,23 @@ import java.util.List;
 
 public class Period {
 
+    private PeriodType periodType;
+
     private LocalDate startOfPeriod;
 
     private int periodLength;
 
     private List<Day> daysInPeriod;
 
+
+
+    public void setPeriodType(PeriodType periodType) {
+        this.periodType = periodType;
+    }
+
+    public PeriodType getPeriodType() {
+        return periodType;
+    }
 
 
     public void setStartOfPeriod(LocalDate startOfPeriod) {
