@@ -9,7 +9,7 @@ import java.util.List;
 import static period.PeriodFactory.dayLocationInlist;
 import static timedifference.TimeDifferenceFactory.timeDifferenceBuilder;
 
-public class TimePLacer {
+public class TimePlacer {
 
     /*
     public static Period inputTimeDifferenceInPeriod ( Period period ,LocalDate dateToAddTimeTo, int timeDifferenceToAdd){

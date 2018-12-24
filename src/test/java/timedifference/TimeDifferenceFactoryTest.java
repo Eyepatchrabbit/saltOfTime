@@ -24,17 +24,4 @@ public class TimeDifferenceFactoryTest extends TimeDifferenceFactory{
     }
 
 
-    @DisplayName("determineDifferenceTypeTest")
-    @ParameterizedTest
-    @CsvSource(value = {
-            "0, ENOUGH",
-            //leapYear
-            "1, TIMELEFT",
-            "-1, DEFICIT"
-    })
-    public void determineDifferenceTypeTest(int differenceinMinutes, DifferenceType differenceType){
-        Assert.assertEquals(differenceType, determineDifferenceType(differenceinMinutes));
-
-    }
-
 }

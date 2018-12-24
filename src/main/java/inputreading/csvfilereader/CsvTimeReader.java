@@ -3,7 +3,8 @@ package inputreading.csvfilereader;
 import com.opencsv.CSVReader;
 import period.Period;
 import period.PeriodFactory;
-import timedifference.TimePLacer;
+import periodreporting.PeriodReportingFactory;
+import timedifference.TimePlacer;
 
 import java.io.FileReader;
 import java.time.LocalDate;
@@ -54,10 +55,12 @@ public class CsvTimeReader {
                 }
 
                 //set the given time for the days in the inputfile
-                period.setDaysInPeriod(TimePLacer.inputTimeDifference(
+                period.setDaysInPeriod(TimePlacer.inputTimeDifference(
                         period.getDaysInPeriod(),
                         date,
                         Integer.parseInt( nextRecord[4])));
+
+                period.setPeriodReporting(PeriodReportingFactory.makeReportOfPeriod(period.getDaysInPeriod()));
 
             }
         }

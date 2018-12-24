@@ -1,6 +1,7 @@
 package period;
 
 import day.Day;
+import periodreporting.PeriodReporting;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -14,6 +15,8 @@ public class Period {
     private int periodLength;
 
     private List<Day> daysInPeriod;
+
+    private PeriodReporting periodReporting;
 
 
 
@@ -61,6 +64,16 @@ public class Period {
             }
         }
         return null;
+    }
+
+
+
+    public void setPeriodReporting(PeriodReporting periodReporting) {
+        this.periodReporting = periodReporting;
+    }
+
+    public PeriodReporting getPeriodReporting() {
+        return periodReporting;
     }
 
 
