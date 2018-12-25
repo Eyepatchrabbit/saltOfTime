@@ -5,11 +5,15 @@ import timedifference.DifferenceType;
 public class PeriodReporting {
     int totalTimeDifference;
 
+    DifferenceType differenceType;
+
     int totalDaysFilledIn;
+
+    double totalDaysFilledInPercentage;
 
     int totalNumberWeekdays;
 
-    DifferenceType differenceType;
+    int totalDaysInPeriod;
 
 
     public int getTotalTimeDifference() {
@@ -20,6 +24,17 @@ public class PeriodReporting {
         this.totalTimeDifference = totalTimeDifference;
     }
 
+
+    public DifferenceType getDifferenceType() {
+        return differenceType;
+    }
+
+    public void setDifferenceType(DifferenceType differenceType) {
+        this.differenceType = differenceType;
+    }
+
+
+
     public int getTotalDaysFilledIn() {
         return totalDaysFilledIn;
     }
@@ -28,11 +43,29 @@ public class PeriodReporting {
         this.totalDaysFilledIn = totalDaysFilledIn;
     }
 
+
+    public double getTotalDaysFilledInPercentage() {
+        return totalDaysFilledInPercentage;
+    }
+
+    public void setTotalDaysFilledInPercentage(double totalDaysFilledInPercentage) {
+        this.totalDaysFilledInPercentage = totalDaysFilledInPercentage;
+    }
+
     public int getTotalNumberWeekdays() {
         return totalNumberWeekdays;
     }
 
     public void setTotalNumberWeekdays(int totalNumberWeekdays) {
         this.totalNumberWeekdays = totalNumberWeekdays;
+    }
+
+
+    public int getTotalDaysInPeriod() {
+        return totalDaysInPeriod;
+    }
+
+    public void setTotalDaysInPeriod(int totalDaysInPeriod) {
+        this.totalDaysInPeriod = totalDaysInPeriod;
     }
 }

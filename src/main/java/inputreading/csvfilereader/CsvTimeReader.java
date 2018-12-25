@@ -60,9 +60,12 @@ public class CsvTimeReader {
                         date,
                         Integer.parseInt( nextRecord[4])));
 
-                period.setPeriodReporting(PeriodReportingFactory.makeReportOfPeriod(period.getDaysInPeriod()));
+
 
             }
+
+            period.setPeriodReporting(PeriodReportingFactory.makeReportOfPeriod(period.getDaysInPeriod()));
+            
         }
         catch (Exception e) {
             e.printStackTrace();

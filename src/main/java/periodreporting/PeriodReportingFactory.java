@@ -2,7 +2,7 @@ package periodreporting;
 
 import day.Day;
 import day.WeekDayType;
-import period.Period;
+import timedifference.DifferenceTypeDetermined;
 
 import java.util.List;
 
@@ -15,6 +15,8 @@ public class PeriodReportingFactory {
         int totalDaysFilledIn = 0;
         int totalNumberWeekdays = 0;
 
+        int totalDaysInPeriod=daylistPeriod.size();
+
         for (Day dayInPeriod:daylistPeriod) {
             if (dayInPeriod.getTimeDifference()!=(null)){
                 totalTimeDifference=totalTimeDifference+dayInPeriod.getTimeDifference().getTimeDifferenceInputted();
@@ -24,13 +26,16 @@ public class PeriodReportingFactory {
                 if (dayInPeriod.getDayElements().getWeekDayType().equals(WeekDayType.WEEKDAY)){
                     totalNumberWeekdays++;
                 }
-
             }
         }
 
         periodReporting.setTotalTimeDifference(totalTimeDifference);
+        periodReporting.setDifferenceType(DifferenceTypeDetermined.determineDifferenceType(totalTimeDifference));
+        periodReporting.setTotalDaysFilledInPercentage(totalDaysFilledIn >0 ? ( ( (double) totalDaysFilledIn)/totalDaysInPeriod) : 0);
         periodReporting.setTotalDaysFilledIn(totalDaysFilledIn);
         periodReporting.setTotalNumberWeekdays(totalNumberWeekdays);
+        periodReporting.setTotalDaysInPeriod(totalDaysInPeriod);
+
 
         return periodReporting;
     }
