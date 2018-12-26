@@ -1,11 +1,14 @@
 package period;
 
 import day.Day;
+import periodreporting.PeriodReporting;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public class Period {
+
+    private PeriodType periodType;
 
     private LocalDate startOfPeriod;
 
@@ -13,6 +16,17 @@ public class Period {
 
     private List<Day> daysInPeriod;
 
+    private PeriodReporting periodReporting;
+
+
+
+    public void setPeriodType(PeriodType periodType) {
+        this.periodType = periodType;
+    }
+
+    public PeriodType getPeriodType() {
+        return periodType;
+    }
 
 
     public void setStartOfPeriod(LocalDate startOfPeriod) {
@@ -50,6 +64,16 @@ public class Period {
             }
         }
         return null;
+    }
+
+
+
+    public void setPeriodReporting(PeriodReporting periodReporting) {
+        this.periodReporting = periodReporting;
+    }
+
+    public PeriodReporting getPeriodReporting() {
+        return periodReporting;
     }
 
 

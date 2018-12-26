@@ -3,7 +3,8 @@ package inputreading.csvfilereader;
 import com.opencsv.CSVReader;
 import period.Period;
 import period.PeriodFactory;
-import timedifference.TimePLacer;
+import periodreporting.PeriodReportingFactory;
+import timedifference.TimePlacer;
 
 import java.io.FileReader;
 import java.time.LocalDate;
@@ -44,7 +45,7 @@ public class CsvTimeReader {
                         period = PeriodFactory.weekBuilder(date);
 
                     }else if ("month".equals(periodType.toLowerCase())){
-                    period=PeriodFactory.monthBuilder(date);
+                        period=PeriodFactory.monthBuilder(date);
 
                     }else {
                         throw new IllegalArgumentException();
@@ -54,12 +55,17 @@ public class CsvTimeReader {
                 }
 
                 //set the given time for the days in the inputfile
-                period.setDaysInPeriod(TimePLacer.inputTimeDifference(
+                period.setDaysInPeriod(TimePlacer.inputTimeDifference(
                         period.getDaysInPeriod(),
                         date,
                         Integer.parseInt( nextRecord[4])));
 
+
+
             }
+
+            period.setPeriodReporting(PeriodReportingFactory.makeReportOfPeriod(period.getDaysInPeriod()));
+            
         }
         catch (Exception e) {
             e.printStackTrace();

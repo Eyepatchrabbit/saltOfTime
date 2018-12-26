@@ -7,22 +7,10 @@ public class TimeDifferenceFactory {
 
         timeDifference.setTimeDifferenceInputted(timeDifferenceInDay);
 
-        timeDifference.setDifferenceType(determineDifferenceType(timeDifferenceInDay));
+        timeDifference.setDifferenceType(DifferenceTypeDetermined.determineDifferenceType(timeDifferenceInDay));
 
         return timeDifference;
     }
 
-
-    protected static DifferenceType determineDifferenceType(int timeDifferenceInDay){
-        if (timeDifferenceInDay>=0){
-            if (timeDifferenceInDay>0){
-                return DifferenceType.TIMELEFT;
-            }
-            return DifferenceType.ENOUGH;
-        }
-
-        return DifferenceType.DEFICIT;
-
-    }
 
 }

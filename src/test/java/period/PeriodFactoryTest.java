@@ -11,6 +11,7 @@ import utils.testhelpmethods.DateUtils;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.List;
 
 import static period.PeriodFactory.*;
 
@@ -20,9 +21,10 @@ public class PeriodFactoryTest {
     @Test
     public void basicPeriodBuilder_OneDayTest() {
         //make "period" of 1 day->see if the needed elements were made
-        Period period= PeriodFactory.basicPeriodBuilder(LocalDate.of(2018,12, 1),1);
+        Period period= PeriodFactory.basicPeriodBuilder(LocalDate.of(2018,12, 1),1,PeriodType.ELSE);
 
         //basic elements of the period
+        Assert.assertEquals(PeriodType.ELSE,period.getPeriodType());
         Assert.assertEquals(LocalDate.of(2018,12,1),period.getStartOfPeriod());
         Assert.assertEquals(1,period.getPeriodLength());
         Assert.assertEquals(1,period.getDaysInPeriod().size());
@@ -46,9 +48,10 @@ public class PeriodFactoryTest {
     @Test
     public void basicPeriodBuilder_TwoDayTest() {
         //make "period" of 1 day->see if the needed elements were made
-        Period period= PeriodFactory.basicPeriodBuilder(LocalDate.of(2018,12, 1),2);
+        Period period= PeriodFactory.basicPeriodBuilder(LocalDate.of(2018,12, 1),2,PeriodType.ELSE);
 
         //basic elements of the period
+        Assert.assertEquals(PeriodType.ELSE,period.getPeriodType());
         Assert.assertEquals(LocalDate.of(2018,12,1),period.getStartOfPeriod());
         Assert.assertEquals(2,period.getPeriodLength());
         Assert.assertEquals(2,period.getDaysInPeriod().size());
@@ -123,6 +126,45 @@ public class PeriodFactoryTest {
         Period weekPeriod= weekBuilder(DateUtils.stringToLocalDate(startOfPeriod));
         int daylocationFromMethod=dayLocationInlist(weekPeriod.getDaysInPeriod(),DateUtils.stringToLocalDate(dayToFindInList));
         Assert.assertEquals(expectedOutput, daylocationFromMethod);
+    }
+
+
+    @DisplayName("smokeTestingWeekBuilder")
+    @Test
+    public void buidlingWeekTest(){
+        Period period=weekBuilder(LocalDate.of(2018,12,26));
+
+        Assert.assertEquals(LocalDate.of(2018,12,24),period.getStartOfPeriod());
+        Assert.assertEquals(7,period.getDaysInPeriod().size());
+        Assert.assertEquals(7,period.getPeriodLength());
+        Assert.assertEquals(PeriodType.WEEK,period.getPeriodType());
+
+
+        List<Day> daysList=period.getDaysInPeriod();
+        Assert.assertEquals(0,dayLocationInlist(daysList,LocalDate.of(2018,12,24)));
+        Assert.assertEquals(2,dayLocationInlist(daysList,LocalDate.of(2018,12,26)));
+        Assert.assertEquals(6,dayLocationInlist(daysList,LocalDate.of(2018,12,30)));
+
+    }
+
+    @DisplayName("smokeTestingMonthBuilder")
+    @Test
+    public void buidlingMonthTest(){
+        Period period=monthBuilder(LocalDate.of(2018,12,26));
+
+        Assert.assertEquals(LocalDate.of(2018,12,1),period.getStartOfPeriod());
+        Assert.assertEquals(31,period.getDaysInPeriod().size());
+        Assert.assertEquals(31,period.getPeriodLength());
+        Assert.assertEquals(PeriodType.MONTH,period.getPeriodType());
+
+
+        List<Day> daysList=period.getDaysInPeriod();
+        Assert.assertEquals(0,dayLocationInlist(daysList,LocalDate.of(2018,12,1)));
+        Assert.assertEquals(23,dayLocationInlist(daysList,LocalDate.of(2018,12,24)));
+        Assert.assertEquals(25,dayLocationInlist(daysList,LocalDate.of(2018,12,26)));
+        Assert.assertEquals(29,dayLocationInlist(daysList,LocalDate.of(2018,12,30)));
+        Assert.assertEquals(30,dayLocationInlist(daysList,LocalDate.of(2018,12,31)));
+
     }
 
 

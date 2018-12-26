@@ -1,0 +1,5 @@
+#Year,Month,Day,Period,minutesdifferenceInDay
+2018,12,17,WEEK,1
+2018,12,18,WEEK,1
+2018,12,19,WEEK,-2
+2018,12,20,WEEK,-1

@@ -15,7 +15,7 @@ public class PeriodFactory {
     }
 
     public static Period weekBuilder(LocalDate startDate){
-        return basicPeriodBuilder(firstOfTheWeek(startDate), 7);
+        return basicPeriodBuilder(firstOfTheWeek(startDate), 7, PeriodType.WEEK);
     }
 
 
@@ -25,14 +25,16 @@ public class PeriodFactory {
     }
 
     public static Period monthBuilder(LocalDate startDate){
-        return basicPeriodBuilder(startDate, numberOfDaysInMonth(startDate));
+        return basicPeriodBuilder( firstOfTheMonth(startDate), numberOfDaysInMonth(startDate), PeriodType.MONTH);
     }
 
 
 
-    public static Period basicPeriodBuilder(LocalDate startDate, int periodlength) {
+    public static Period basicPeriodBuilder(LocalDate startDate, int periodlength, PeriodType periodType) {
 
         Period periodToBuild=new Period();
+
+        periodToBuild.setPeriodType(periodType);
 
         periodToBuild.setStartOfPeriod(startDate);
 
@@ -74,6 +76,10 @@ public class PeriodFactory {
 
     public static int numberOfDaysInMonth(LocalDate date){
         return date.lengthOfMonth();
+    }
+
+    public static LocalDate firstOfTheMonth(LocalDate date){
+        return date.withDayOfMonth(1);
     }
 
 

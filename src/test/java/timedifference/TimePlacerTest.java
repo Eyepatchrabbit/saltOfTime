@@ -9,7 +9,7 @@ import period.PeriodFactory;
 
 import java.time.LocalDate;
 
-import static timedifference.TimePLacer.inputTimeDifference;
+import static timedifference.TimePlacer.inputTimeDifference;
 
 public class TimePlacerTest {
 
