@@ -1,7 +1,6 @@
 package timedifference;
 
 import day.Day;
-import period.Period;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -10,15 +9,6 @@ import static period.PeriodFactory.dayLocationInlist;
 import static timedifference.TimeDifferenceFactory.timeDifferenceBuilder;
 
 public class TimePlacer {
-
-    /*
-    public static Period inputTimeDifferenceInPeriod ( Period period ,LocalDate dateToAddTimeTo, int timeDifferenceToAdd){
-        Period periodAdapted=period;
-        period.setDaysInPeriod( inputTimeDifference(period.getDaysInPeriod(),dateToAddTimeTo,timeDifferenceToAdd));
-        return periodAdapted;
-
-    }
-    */
 
     public static List<Day> inputTimeDifference(List<Day> daylist, LocalDate dateToAddTimeTo, int timeDifferenceToAdd){
         List<Day> adaptedList=daylist;

@@ -2,7 +2,6 @@ package day;
 
 import timedifference.TimeDifference;
 
-import java.security.PublicKey;
 import java.time.LocalDate;
 
 public class Day {

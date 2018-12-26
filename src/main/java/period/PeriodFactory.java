@@ -25,7 +25,7 @@ public class PeriodFactory {
     }
 
     public static Period monthBuilder(LocalDate startDate){
-        return basicPeriodBuilder(startDate, numberOfDaysInMonth(startDate), PeriodType.MONTH);
+        return basicPeriodBuilder( firstOfTheMonth(startDate), numberOfDaysInMonth(startDate), PeriodType.MONTH);
     }
 
 
@@ -76,6 +76,10 @@ public class PeriodFactory {
 
     public static int numberOfDaysInMonth(LocalDate date){
         return date.lengthOfMonth();
+    }
+
+    public static LocalDate firstOfTheMonth(LocalDate date){
+        return date.withDayOfMonth(1);
     }
 
 

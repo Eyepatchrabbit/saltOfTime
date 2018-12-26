@@ -3,8 +3,6 @@ package utils;
 
 import java.math.BigDecimal;
 
-import static java.lang.Math.round;
-
 public class RoundingDoubleValue {
 
     public static double roundDoubleToFourDigits (double inputDouble){

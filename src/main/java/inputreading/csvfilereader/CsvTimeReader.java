@@ -45,7 +45,7 @@ public class CsvTimeReader {
                         period = PeriodFactory.weekBuilder(date);
 
                     }else if ("month".equals(periodType.toLowerCase())){
-                    period=PeriodFactory.monthBuilder(date);
+                        period=PeriodFactory.monthBuilder(date);
 
                     }else {
                         throw new IllegalArgumentException();

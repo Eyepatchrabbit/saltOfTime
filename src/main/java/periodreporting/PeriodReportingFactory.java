@@ -23,9 +23,9 @@ public class PeriodReportingFactory {
 
                 totalDaysFilledIn++;
 
-                if (dayInPeriod.getDayElements().getWeekDayType().equals(WeekDayType.WEEKDAY)){
-                    totalNumberWeekdays++;
-                }
+            }
+            if (dayInPeriod.getDayElements().getWeekDayType().equals(WeekDayType.WEEKDAY)){
+                totalNumberWeekdays++;
             }
         }
 

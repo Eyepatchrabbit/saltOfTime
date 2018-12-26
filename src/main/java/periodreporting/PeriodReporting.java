@@ -3,17 +3,17 @@ package periodreporting;
 import timedifference.DifferenceType;
 
 public class PeriodReporting {
-    int totalTimeDifference;
+    private int totalTimeDifference;
 
-    DifferenceType differenceType;
+    private DifferenceType differenceType;
 
-    int totalDaysFilledIn;
+    private int totalDaysFilledIn;
 
-    double totalDaysFilledInPercentage;
+    private double totalDaysFilledInPercentage;
 
-    int totalNumberWeekdays;
+    private int totalNumberWeekdays;
 
-    int totalDaysInPeriod;
+    private int totalDaysInPeriod;
 
 
     public int getTotalTimeDifference() {
