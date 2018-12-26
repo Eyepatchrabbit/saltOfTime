@@ -1,4 +1,4 @@
-package inputreading.csvfilereader;
+package inputhandeling.csvfilereader;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.DisplayName;
@@ -14,7 +14,7 @@ public class CsvTimeReaderTest {
 
     @DisplayName("csvReadingTest")
     @ParameterizedTest
-    @CsvSource(value = {"/src/test/java/inputreading/csvfilereader/testCsvFile.csv"})
+    @CsvSource(value = {"/src/test/java/inputhandeling/csvfilereader/testCsvFile.csv"})
     public void csvReadingTest(String inputFileLocation){
         String finalLocationTestFile= FindFolder.projectRootFolderLocation()+inputFileLocation;
 

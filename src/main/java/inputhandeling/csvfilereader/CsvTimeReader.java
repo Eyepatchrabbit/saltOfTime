@@ -1,4 +1,4 @@
-package inputreading.csvfilereader;
+package inputhandeling.csvfilereader;
 
 import com.opencsv.CSVReader;
 import period.Period;
