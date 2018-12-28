@@ -1,0 +1,57 @@
+##################
+# Period Summary #
+##################
+PeriodType: MONTH
+startOfPeriod: 2018-12-01
+periodLength: 31
+
+PeriodReportingElements
+=======================
+totalTimeDifference: 17
+differenceType: TIMELEFT
+totalDaysInPeriod: 31
+totalDaysFilledIn: 4
+totalDaysFilledInPercentage: 12.9%
+totalNumberWeekdays: 21
+
+DaysInPeriod
+============
+ * 2018-12-01(SATURDAY)
+ * 2018-12-02(SUNDAY)
+ * 2018-12-03(MONDAY)
+ * 2018-12-04(TUESDAY)
+ * 2018-12-05(WEDNESDAY)
+ * 2018-12-06(THURSDAY)
+ * 2018-12-07(FRIDAY)
+ * 2018-12-08(SATURDAY)
+ * 2018-12-09(SUNDAY)
+ * 2018-12-10(MONDAY)
+ * 2018-12-11(TUESDAY)
+ * 2018-12-12(WEDNESDAY)
+ * 2018-12-13(THURSDAY)
+ * 2018-12-14(FRIDAY)
+ * 2018-12-15(SATURDAY)
+ * 2018-12-16(SUNDAY)
+ * 2018-12-17(MONDAY)
+	TimeDifference: 10
+	DifferenceType: TIMELEFT
+ * 2018-12-18(TUESDAY)
+ * 2018-12-19(WEDNESDAY)
+	TimeDifference: 8
+	DifferenceType: TIMELEFT
+ * 2018-12-20(THURSDAY)
+	TimeDifference: -1
+	DifferenceType: DEFICIT
+ * 2018-12-21(FRIDAY)
+ * 2018-12-22(SATURDAY)
+ * 2018-12-23(SUNDAY)
+	TimeDifference: 0
+	DifferenceType: ENOUGH
+ * 2018-12-24(MONDAY)
+ * 2018-12-25(TUESDAY)
+ * 2018-12-26(WEDNESDAY)
+ * 2018-12-27(THURSDAY)
+ * 2018-12-28(FRIDAY)
+ * 2018-12-29(SATURDAY)
+ * 2018-12-30(SUNDAY)
+ * 2018-12-31(MONDAY)

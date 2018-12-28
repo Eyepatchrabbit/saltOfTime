@@ -1,17 +1,19 @@
 package outputgeneration.commandlineoutput;
 
+import day.Day;
 import period.Period;
 
 import java.text.DecimalFormat;
+import java.util.List;
 
 import static java.lang.Math.round;
 
 public class CommandlineOutputFactory {
-
+    private final static String primaryUnderliner="=";
+    private final static String secondaryUnderliner="-";
 
     public static String generateOutputAsString(Period period){
-        String primaryUnderliner="=";
-        String secondaryUnderliner="-";
+
 
 
         //basic elements indicators period
@@ -51,6 +53,8 @@ public class CommandlineOutputFactory {
 
 
         //now something to add info on the day
+        outputBuilder.append("\n");
+        outputBuilder.append(outputDay(period.getDaysInPeriod()));
 
 
 
@@ -61,6 +65,34 @@ public class CommandlineOutputFactory {
     }
 
 
+
+    private static String outputDay(List<Day> daylistInPeriod){
+        String headerForDays="DaysInPeriod";
+        String timeDifference="TimeDifference";
+        String differenceType="DifferenceType";
+
+        StringBuilder dayInfoBuilder=new StringBuilder();
+
+        dayInfoBuilder.append(underliningHeader(headerForDays,primaryUnderliner));
+
+        for (Day dayInPeriod:daylistInPeriod) {
+            dayInfoBuilder.append(dayHeader(dayInPeriod));
+            if (dayInPeriod.getTimeDifference()!=null){
+            dayInfoBuilder.append(outputParameterAndValue(timeDifference, String.valueOf(dayInPeriod.getTimeDifference().getTimeDifferenceInputted()), 1));
+            dayInfoBuilder.append(outputParameterAndValue(differenceType, String.valueOf(dayInPeriod.getTimeDifference().getDifferenceType()), 1));
+            }
+        }
+
+
+
+        return dayInfoBuilder.toString();
+    }
+
+
+    private static String dayHeader(Day day){
+        return " * "+day.getDate()+"("+day.getDayElements().getWeekName()+")\n";
+
+    }
 
     private static String underliningHeader(String headline, String underline){
         return headline+"\n"+lineMaker(headline.length(),underline)+"\n";
@@ -76,7 +108,7 @@ public class CommandlineOutputFactory {
             tabsSetBefore=tabsSetBefore+"\t";
         }
 
-        return parameter+": "+value+"\n";
+        return tabsSetBefore+parameter+": "+value+"\n";
     }
 
 

@@ -1,30 +1,34 @@
 package outputgeneration.commandlineoutput;
 
 import inputhandeling.csvfilereader.CsvTimeReader;
+import org.junit.Assert;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import period.Period;
 import utils.FindFolder;
+import utils.testhelpmethods.HardComarisonFileReader;
 
 public class CommandlineOutputFactoryTest {
 
-    @Disabled
+
     @DisplayName("commandlineOutputGenerationTest")
-    @Test
-    public void commandlineOutputGenerationTest(){
-        String finalLocationTestFile= FindFolder.projectRootFolderLocation()+"/src/test/java/outputgeneration/commandlineoutput/testoutputGeneration.csv";
+    @ParameterizedTest
+    @CsvSource(value = {
+            "testOutputGenerationWeek.csv,expectedOutPutWeek.txt"
+    })
+    public void commandlineOutputGenerationTest(String inputMockFile,String expectedOutputFile){
+        String StartFolderTestFilesToUse=FindFolder.projectRootFolderLocation()+"/src/test/java/outputgeneration/commandlineoutput/";
 
-        Period period = CsvTimeReader.readingInput(finalLocationTestFile);
+        Period period = CsvTimeReader.readingInput(StartFolderTestFilesToUse+inputMockFile);
 
-        String stringgenerated= CommandlineOutputFactory.generateOutputAsString(period);
+        String stringGeneratedForOutput= CommandlineOutputFactory.generateOutputAsString(period);
 
-        //System.out.println( period.getStartOfPeriod());
+        String expectedOUtput= HardComarisonFileReader.readFileForComparison(StartFolderTestFilesToUse+expectedOutputFile);
 
-        System.out.println(stringgenerated);
-
-        //System.out.println("\n\ntest ok");
-
+        Assert.assertEquals(expectedOUtput,stringGeneratedForOutput);
 
     }
 }
