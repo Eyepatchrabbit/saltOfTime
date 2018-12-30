@@ -13,6 +13,8 @@ totalDaysInPeriod: 7
 totalDaysFilledIn: 4
 totalDaysFilledInPercentage: 57.14%
 totalNumberWeekdays: 5
+totalWeekDaysFilledIn: 4
+totalWeekDaysFilledInPercentage: 80.0%
 
 DaysInPeriod
 ============

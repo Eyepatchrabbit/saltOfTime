@@ -2,6 +2,7 @@ package outputgeneration.commandlineoutput;
 
 import day.Day;
 import period.Period;
+import periodreporting.PeriodReporting;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -14,22 +15,11 @@ public class CommandlineOutputFactory {
 
     public static String generateOutputAsString(Period period){
 
-
-
         //basic elements indicators period
         String header="Period Summary";
         String periodType="PeriodType";
         String startOfPeriod="startOfPeriod";
         String periodLength="periodLength";
-
-        //PeriodReportingElements
-        String periodReportingElements="PeriodReportingElements";
-        String totalTimeDifference="totalTimeDifference";
-        String differenceType="differenceType";
-        String totalDaysFilledIn="totalDaysFilledIn";
-        String totalDaysFilledInPercentage="totalDaysFilledInPercentage";
-        String totalNumberWeekdays="totalNumberWeekdays";
-        String totalDaysInPeriod="totalDaysInPeriod";
 
 
         StringBuilder outputBuilder = new StringBuilder();
@@ -42,14 +32,9 @@ public class CommandlineOutputFactory {
         outputBuilder.append(outputParameterAndValue(startOfPeriod,period.getStartOfPeriod().toString()));
         outputBuilder.append(outputParameterAndValue(periodLength,String.valueOf(period.getPeriodLength())));
 
+        //info from periodReporting
         outputBuilder.append("\n");
-        outputBuilder.append(underliningHeader( periodReportingElements, primaryUnderliner));
-        outputBuilder.append(outputParameterAndValue(totalTimeDifference,String.valueOf(period.getPeriodReporting().getTotalTimeDifference())));
-        outputBuilder.append(outputParameterAndValue(differenceType, period.getPeriodReporting().getDifferenceType().toString()));
-        outputBuilder.append(outputParameterAndValue(totalDaysInPeriod,String.valueOf(period.getPeriodReporting().getTotalDaysInPeriod())));
-        outputBuilder.append(outputParameterAndValue(totalDaysFilledIn,String.valueOf( period.getPeriodReporting().getTotalDaysFilledIn())));
-        outputBuilder.append(outputParameterAndValue(totalDaysFilledInPercentage,String.valueOf( outputPercentage(period.getPeriodReporting().getTotalDaysFilledInPercentage()))));
-        outputBuilder.append(outputParameterAndValue(totalNumberWeekdays,String.valueOf(period.getPeriodReporting().getTotalNumberWeekdays())));
+        outputBuilder.append(outputReportingInfo(period.getPeriodReporting()));
 
 
         //now something to add info on the day
@@ -57,11 +42,35 @@ public class CommandlineOutputFactory {
         outputBuilder.append(outputDay(period.getDaysInPeriod()));
 
 
-
-
-
-
         return outputBuilder.toString();
+    }
+
+    private static String outputReportingInfo(PeriodReporting periodReportingInfo){
+        //PeriodReportingElements
+        String periodReportingElements="PeriodReportingElements";
+        String totalTimeDifference="totalTimeDifference";
+        String differenceType="differenceType";
+        String totalDaysFilledIn="totalDaysFilledIn";
+        String totalDaysFilledInPercentage="totalDaysFilledInPercentage";
+        String totalNumberWeekdays="totalNumberWeekdays";
+        String totalDaysInPeriod="totalDaysInPeriod";
+        String totalWeekDaysFilledIn="totalWeekDaysFilledIn";
+        String totalWeekDaysFilledInPercentage="totalWeekDaysFilledInPercentage";
+
+        StringBuilder builderReprtingInfo=new StringBuilder();
+        builderReprtingInfo.append(underliningHeader(periodReportingElements, primaryUnderliner));
+        builderReprtingInfo.append(outputParameterAndValue(totalTimeDifference,String.valueOf(periodReportingInfo.getTotalTimeDifference())));
+        builderReprtingInfo.append(outputParameterAndValue(differenceType, periodReportingInfo.getDifferenceType().toString()));
+        builderReprtingInfo.append(outputParameterAndValue(totalDaysInPeriod,String.valueOf(periodReportingInfo.getTotalDaysInPeriod())));
+        builderReprtingInfo.append(outputParameterAndValue(totalDaysFilledIn,String.valueOf( periodReportingInfo.getTotalDaysFilledIn())));
+        builderReprtingInfo.append(outputParameterAndValue(totalDaysFilledInPercentage,String.valueOf(outputPercentage(periodReportingInfo.getTotalDaysFilledInPercentage()))));
+        builderReprtingInfo.append(outputParameterAndValue(totalNumberWeekdays,String.valueOf(periodReportingInfo.getTotalNumberWeekdays())));
+        builderReprtingInfo.append(outputParameterAndValue(totalWeekDaysFilledIn,String.valueOf(periodReportingInfo.getTotalWeekDaysFilledIn())));
+        builderReprtingInfo.append(outputParameterAndValue(totalWeekDaysFilledInPercentage,String.valueOf( outputPercentage(periodReportingInfo.getTotalWeekDaysFilledInPercentage()))));
+
+
+
+        return builderReprtingInfo.toString();
     }
 
 
@@ -82,8 +91,6 @@ public class CommandlineOutputFactory {
             dayInfoBuilder.append(outputParameterAndValue(differenceType, String.valueOf(dayInPeriod.getTimeDifference().getDifferenceType()), 1));
             }
         }
-
-
 
         return dayInfoBuilder.toString();
     }

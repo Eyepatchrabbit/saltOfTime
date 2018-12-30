@@ -2,9 +2,7 @@ package outputgeneration.commandlineoutput;
 
 import inputhandeling.csvfilereader.CsvTimeReader;
 import org.junit.Assert;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import period.Period;
@@ -17,7 +15,8 @@ public class CommandlineOutputFactoryTest {
     @DisplayName("commandlineOutputGenerationTest")
     @ParameterizedTest
     @CsvSource(value = {
-            "testOutputGenerationWeek.csv,expectedOutPutWeek.txt"
+            "testOutputGenerationWeek.csv,expectedOutPutWeek.txt",
+            "testOutputGenerationMonth.csv,expectedOutPutMonth.txt"
     })
     public void commandlineOutputGenerationTest(String inputMockFile,String expectedOutputFile){
         String StartFolderTestFilesToUse=FindFolder.projectRootFolderLocation()+"/src/test/java/outputgeneration/commandlineoutput/";
