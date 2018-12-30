@@ -9,7 +9,7 @@ import java.util.List;
 
 import static java.lang.Math.round;
 
-public class CommandlineOutputFactory {
+public class TextOutputFactory {
     private final static String primaryUnderliner="=";
     private final static String secondaryUnderliner="-";
 

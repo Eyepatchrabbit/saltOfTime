@@ -9,7 +9,7 @@ import period.Period;
 import utils.FindFolder;
 import utils.testhelpmethods.HardComarisonFileReader;
 
-public class CommandlineOutputFactoryTest {
+public class TextOutputFactoryTest {
 
 
     @DisplayName("commandlineOutputGenerationTest")
@@ -23,7 +23,7 @@ public class CommandlineOutputFactoryTest {
 
         Period period = CsvTimeReader.readingInput(StartFolderTestFilesToUse+inputMockFile);
 
-        String stringGeneratedForOutput= CommandlineOutputFactory.generateOutputAsString(period);
+        String stringGeneratedForOutput= TextOutputFactory.generateOutputAsString(period);
 
         String expectedOUtput= HardComarisonFileReader.readFileForComparison(StartFolderTestFilesToUse+expectedOutputFile);
 
