@@ -7,13 +7,17 @@ public class PeriodReporting {
 
     private DifferenceType differenceType;
 
+    private int totalDaysInPeriod;
+
     private int totalDaysFilledIn;
 
     private double totalDaysFilledInPercentage;
 
     private int totalNumberWeekdays;
 
-    private int totalDaysInPeriod;
+    private int totalWeekDaysFilledIn;
+
+    private double totalWeekDaysFilledInPercentage;
 
 
     public int getTotalTimeDifference() {
@@ -34,6 +38,14 @@ public class PeriodReporting {
     }
 
 
+    public int getTotalDaysInPeriod() {
+        return totalDaysInPeriod;
+    }
+
+    public void setTotalDaysInPeriod(int totalDaysInPeriod) {
+        this.totalDaysInPeriod = totalDaysInPeriod;
+    }
+
 
     public int getTotalDaysFilledIn() {
         return totalDaysFilledIn;
@@ -52,6 +64,7 @@ public class PeriodReporting {
         this.totalDaysFilledInPercentage = totalDaysFilledInPercentage;
     }
 
+
     public int getTotalNumberWeekdays() {
         return totalNumberWeekdays;
     }
@@ -61,11 +74,20 @@ public class PeriodReporting {
     }
 
 
-    public int getTotalDaysInPeriod() {
-        return totalDaysInPeriod;
+    public int getTotalWeekDaysFilledIn() {
+        return totalWeekDaysFilledIn;
     }
 
-    public void setTotalDaysInPeriod(int totalDaysInPeriod) {
-        this.totalDaysInPeriod = totalDaysInPeriod;
+    public void setTotalWeekDaysFilledIn(int totalWeekDaysFilledIn) {
+        this.totalWeekDaysFilledIn = totalWeekDaysFilledIn;
+    }
+
+
+    public double getTotalWeekDaysFilledInPercentage() {
+        return totalWeekDaysFilledInPercentage;
+    }
+
+    public void setTotalWeekDaysFilledInPercentage(double totalWeekDaysFilledInPercentage) {
+        this.totalWeekDaysFilledInPercentage = totalWeekDaysFilledInPercentage;
     }
 }

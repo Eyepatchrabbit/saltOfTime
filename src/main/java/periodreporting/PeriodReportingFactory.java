@@ -14,6 +14,7 @@ public class PeriodReportingFactory {
         int totalTimeDifference = 0;
         int totalDaysFilledIn = 0;
         int totalNumberWeekdays = 0;
+        int totalNumberWeekdaysFilledIn = 0;
 
         int totalDaysInPeriod=daylistPeriod.size();
 
@@ -23,6 +24,10 @@ public class PeriodReportingFactory {
 
                 totalDaysFilledIn++;
 
+                if (dayInPeriod.getDayElements().getWeekDayType().equals(WeekDayType.WEEKDAY)){
+                    totalNumberWeekdaysFilledIn++;
+                }
+
             }
             if (dayInPeriod.getDayElements().getWeekDayType().equals(WeekDayType.WEEKDAY)){
                 totalNumberWeekdays++;
@@ -31,10 +36,12 @@ public class PeriodReportingFactory {
 
         periodReporting.setTotalTimeDifference(totalTimeDifference);
         periodReporting.setDifferenceType(DifferenceTypeDetermined.determineDifferenceType(totalTimeDifference));
-        periodReporting.setTotalDaysFilledInPercentage(totalDaysFilledIn >0 ? ( ( (double) totalDaysFilledIn)/totalDaysInPeriod) : 0);
-        periodReporting.setTotalDaysFilledIn(totalDaysFilledIn);
-        periodReporting.setTotalNumberWeekdays(totalNumberWeekdays);
         periodReporting.setTotalDaysInPeriod(totalDaysInPeriod);
+        periodReporting.setTotalDaysFilledIn(totalDaysFilledIn);
+        periodReporting.setTotalDaysFilledInPercentage(totalDaysFilledIn >0 ? ( ( (double) totalDaysFilledIn)/totalDaysInPeriod) : 0);
+        periodReporting.setTotalNumberWeekdays(totalNumberWeekdays);
+        periodReporting.setTotalWeekDaysFilledIn(totalNumberWeekdaysFilledIn);
+        periodReporting.setTotalWeekDaysFilledInPercentage(totalNumberWeekdaysFilledIn >0 ? ( ( (double) totalNumberWeekdaysFilledIn)/totalNumberWeekdays) : 0);
 
 
         return periodReporting;

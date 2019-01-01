@@ -1,0 +1,35 @@
+##################
+# Period Summary #
+##################
+PeriodType: WEEK
+startOfPeriod: 2018-12-17
+periodLength: 7
+
+PeriodReportingElements
+=======================
+totalTimeDifference: 17
+differenceType: TIMELEFT
+totalDaysInPeriod: 7
+totalDaysFilledIn: 4
+totalDaysFilledInPercentage: 57.14%
+totalNumberWeekdays: 5
+totalWeekDaysFilledIn: 4
+totalWeekDaysFilledInPercentage: 80.0%
+
+DaysInPeriod
+============
+ * 2018-12-17(MONDAY)
+	TimeDifference: 10
+	DifferenceType: TIMELEFT
+ * 2018-12-18(TUESDAY)
+ * 2018-12-19(WEDNESDAY)
+	TimeDifference: 8
+	DifferenceType: TIMELEFT
+ * 2018-12-20(THURSDAY)
+	TimeDifference: -1
+	DifferenceType: DEFICIT
+ * 2018-12-21(FRIDAY)
+	TimeDifference: 0
+	DifferenceType: ENOUGH
+ * 2018-12-22(SATURDAY)
+ * 2018-12-23(SUNDAY)
